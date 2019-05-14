@@ -11,7 +11,7 @@ SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 file(GLOB_RECURSE SrcFiles "*.h" "*.cpp")
 
-include_directories(. ${ShareHeaders} ${QtHeaders} ${thirdHeaders})
+include_directories(.)
 
 
 IF(CMAKE_BUILD_TYPE STREQUAL Debug)
