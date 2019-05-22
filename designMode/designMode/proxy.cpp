@@ -1,6 +1,6 @@
 #include "proxy.h"
 #include "define.h"
-
+#include <stack>
 
 Person::Person(): m_name(""), m_gender(1)
 {
