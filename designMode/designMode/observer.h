@@ -6,6 +6,8 @@ using namespace std;
 class Observer
 {
 public:
+	Observer() = default;
+
 	Observer(string name);
 	virtual ~Observer();
 
@@ -25,6 +27,8 @@ public:
 	virtual ~User();
 
 	void update(const string&) override;
+	User(const User&);
+	User& operator=(const User&);
 
 private:
 
