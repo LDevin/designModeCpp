@@ -37,7 +37,10 @@ void WechatServer::removeObserver(Observer* observer)
 	auto  iter = find(m_Observers.begin(), m_Observers.end(), observer);
 	if (iter != m_Observers.end()) {
 		RELEASE(*iter);
+		m_Observers.erase(iter);
 	}
+
+	cout << "size: " << m_Observers.size() << endl;
 }
 
 void WechatServer::notifyObserver(const string& msg)
@@ -56,5 +59,5 @@ void WechatServer::getDataFromDb()
 		}
 	});
 
-	th.detach();
+	th.join();
 }

@@ -22,14 +22,20 @@ int main()
 
 	ObserverManager* wechatServer = new WechatServer();
 
-	for (auto i = 0; i < 20; ++i){
-		wechatServer->registerObserver(new User("devin" + std::to_string(i)));
+	Observer* ob = nullptr;
+
+	for (auto i = 0; i < 20; ++i) {
+		Observer* hh = new User("devin" + std::to_string(i));
+		wechatServer->registerObserver(hh);
+		if (i == 10) ob = hh;
 	}
 
 	wechatServer->notifyObserver("hahah");
 
-	WechatServer *server = dynamic_cast<WechatServer*>(wechatServer);
+	wechatServer->removeObserver(ob);
+	wechatServer->notifyObserver("cccc");
 
+	WechatServer *server = dynamic_cast<WechatServer*>(wechatServer);
 	server->getDataFromDb();
 
 	system("pause");
